@@ -1,4 +1,5 @@
 months = ("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")
+months_int = range(1, 13)
 
 month = input()
 day = int(input())
@@ -13,15 +14,20 @@ elif month == "April" or month == "June" or month == "September" or month == "No
 if not(valid):
     print("Invalid")
 else:
+    month = months_int[months.index(month)]
+    
     #spring: mar 20 to jun 20
-    if month == "April" or month == "May" or (month == "March" and day >= 20) or (month == "June" and day <= 20):
+    if month == 4 or month == 5 or (month == 3 and day >= 20) or (month == 6 and day <= 20):
         print("Spring")
+        
     #summer: jun 21 to sept 21
-    elif month == "July" or month == "August" or (month == "June" and day >= 21) or (month == "September" and day <= 21):
+    elif month == 7 or month == 8 or (month == 6 and day >= 21) or (month == 9 and day <= 21):
         print("Summer")
+        
     #fall: sept 22 to dec 20
-    elif month == "October" or month == "November" or (month == "September" and day >= 22) or (month == "December" and day <= 20):
+    elif month == 10 or month == 11 or (month == 9 and day >= 22) or (month == 12 and day <= 20):
         print("Autumn")
-    #winter: month/day already valid, so it must be winter if not any of the other three seasons
+        
+    #winter: not any other season, must be winter
     else:
         print("Winter")

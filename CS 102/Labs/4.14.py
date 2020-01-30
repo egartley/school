@@ -1,7 +1,7 @@
-directions = {"0": "east/west", "1": "north/south"}
+directions = ["east/west", "north/south"]
 
 num = int(input())
-direction = directions[str(num % 2)]
+direction = directions[num % 2]
 
 if num == 0 or num > 999:
     print(num, "is not a valid interstate highway number.")
