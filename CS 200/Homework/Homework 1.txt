@@ -1,0 +1,38 @@
+Evan Gartley - Section 3
+Homework 1
+
+remove_last_item() - Remove the most recent item put into the bag
+	Preconditions: The bag is not empty
+	Postconditions: The bag no longer has the last item that was put into it
+	Side effects: Size of the bag decreases by 1
+	Returns: void
+
+remove_random_item() - Remove a random item from the bag
+	Preconditions: The bag is not empty
+	Postconditions: The bag has one less item in it
+	Side effects: Size of the bag decreases by 1
+	Returns: the item removed
+
+get_amount_items() - How many items are currently in the bag
+	Preconditions: The bag has been created
+	Postconditions: None
+	Side effects: None
+	Returns: the number of items in the bag
+
+is_full() - Checks if the bag is full of items
+	Preconditions: The bag has been created
+	Postconditions: None
+	Side effects: None
+	Returns: true if the number of items is equal to the maximum capacity, false otherwise
+
+is_empty() - Checks if the bag has any items at all
+	Preconditions: The bag has been created
+	Postconditions: None
+	Side effects: None
+	Returns: true if the bag has no items, false otherwise
+
+empty() - Removes any and all items in the bag
+	Preconditions: The bag has been created
+	Postconditions: The bag has no longer contains any items
+	Side effects: Size of the bag will be 0
+	Returns: void
