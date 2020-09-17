@@ -1,0 +1,7 @@
+1) Using a doubly linked list would be better, because when adding or removing, you'll be able to get to the adjecent nodes in O(1) time since the head/tail reference will have a previous/next reference.
+
+2) It would be better to implement a deque as a circularly linked list, because it would only be one step between the beginning and end nodes, regardless of the list's size. This would make adding and removing from either end of the list O(1).
+
+3) Yes it would benefit from a tail reference, because it would make at least add/removing from the end of the list O(1). Having a head reference would also be good, but you may not need it if the linked list is circular.
+
+4) In terms of running time, it may not, but having sentinel nodes may simplify some of the code for adding and removing nodes.
