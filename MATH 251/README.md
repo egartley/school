@@ -9,4 +9,4 @@ This is a study of proof techniques and the writing of mathematical arguments in
 - Apply proof techniques in various areas such as set theory, number theory, graph theory, summations, function and relations
 - Determine, with proof, whether a given set is finite, countably infinite or uncountable
 - Understand and use the Cantor diagonalization process to show that a set is uncountable
-- Sate the Halting Problem and describe its importance
+- State the Halting Problem and describe its importance
