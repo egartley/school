@@ -51,9 +51,10 @@ class LeakyArrayStack:
 class LeakyLinkedStack:
     class _Node:
 
-        def __init__(self, e, n):
+        def __init__(self, e, p, n):
             """ Node for use with linked list for the stack """
             self.element = e
+            self.prev = p
             self.next = n
 
     def __init__(self, capacity):
@@ -61,41 +62,31 @@ class LeakyLinkedStack:
         self.__capacity = capacity
         if self.__capacity < 1:
             raise ValueError("Capacity must be greater than 1")
-        self.__head = self._Node(EMPTYNODE, None)
+        self.__head = self._Node(EMPTYNODE, None, None)
         current = self.__head
         for c in range(self.__capacity - 1):
-            node = self._Node(EMPTYNODE, None)
+            node = self._Node(EMPTYNODE, current, None)
             current.next = node
             current = node
         self.__tail = current
 
     def push(self, item):
-        """ Add an item to the stack while removing the last one if at capacity """
-        current = self.__head
-        while current is not None:
-            if current.element is EMPTYNODE:
-                break
-            current = current.next
-        if current is None:
-            shift = self.__head
-            last = shift.element
-            while shift is not None:
-                now = shift.next.element
-                shift.next.element = last
-                last = now
-                shift = shift.next
-                if shift.next is None:
-                    break
-            self.__head.element = item
-        else:
-            current.element = item
+        """ Add the item to the stack, removing the last one if full """
+        node = self._Node(item, None, self.__head)
+        self.__head.prev = node
+        self.__head = node
+        self.__tail.prev.next = None
+        self.__tail = self.__tail.prev
 
     def pop(self):
         """ Return and remove the 'first' item in the stack """
         if self.is_empty():
             raise IndexError("LeakyLinkedStack cannot be empty when calling pop")
         removed = self.__head.element
-        self.__head.element = EMPTYNODE
+        self.__head = self.__head.next
+        empty = self._Node(EMPTYNODE, self.__tail, None)
+        self.__tail.next = empty
+        self.__tail = empty
         return removed
 
     def top(self):
@@ -106,7 +97,7 @@ class LeakyLinkedStack:
 
     def is_empty(self):
         """ Return whether or not there's at least one item in the stack """
-        return self.__head.element == EMPTYNODE if self.__tail.element == EMPTYNODE else self.__tail.element == EMPTYNODE
+        return self.__head.element == EMPTYNODE
 
     def __len__(self):
         """ Return the amount of items that are able to be in the stack """
@@ -124,47 +115,37 @@ class LeakyLinkedStack:
         return out + "]"
 
 
+def test(stack):
+    print(stack, "empty =", stack.is_empty())
+    stack.push("A")
+    print(stack, "empty =", stack.is_empty())
+    stack.push("B")
+    print(stack)
+    stack.push("C")
+    print(stack)
+    stack.push("D")
+    print(stack)
+    stack.push("E")
+    print(stack)
+    stack.push("F")
+    print(stack)
+    print("top =", stack.top())
+    print("pop =", stack.pop())
+    print(stack)
+    print("pop =", stack.pop())
+    print(stack)
+    stack.push("X")
+    print(stack)
+    stack.push("Y")
+    print(stack)
+    stack.push("Z")
+    print(stack)
+
+
 def main():
-    las = LeakyArrayStack(5)
-    print(las, "empty =", las.is_empty())
-    las.push("A")
-    print(las, "empty =", las.is_empty())
-    las.push("B")
-    las.push("C")
-    las.push("D")
-    las.push("E")
-    print(las)
-    las.push("F")
-    print(las)
-    print("top =", las.top())
-    print("pop =", las.pop())
-    print(las)
-    print("pop =", las.pop())
-    print(las)
-    print()
-    lls = LeakyLinkedStack(5)
-    print(lls)
-    lls.push("A")
-    print(lls)
-    lls.push("B")
-    print(lls)
-    lls.push("C")
-    print(lls)
-    lls.push("D")
-    print(lls)
-    lls.push("E")
-    print(lls)
-    lls.push("F")
-    print(lls)
-    lls.push("G")
-    print(lls)
-    print("top =", lls.top())
-    print("pop =", lls.pop())
-    print(lls)
-    lls.push("X")
-    print(lls)
-    lls.push("Z")
-    print(lls)
+    test(LeakyArrayStack(3))
+    print("-"*52)
+    test(LeakyLinkedStack(5))
 
 
 main()
