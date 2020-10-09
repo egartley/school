@@ -1,0 +1,59 @@
+Load game? no
+
+Think of an animal, and I will guess it.
+Does it have legs? yes
+Is it a(n) cat? yes
+I win!. Continue? yes
+
+Think of an animal, and I will guess it.
+Does it have legs? yes
+Is it a(n) cat? no
+I give up. What is it? lion
+Please type a question whose answer is yes for lion and no for cat: Does it have a mane?
+Continue? yes
+
+Think of an animal, and I will guess it.
+Does it have legs? yes
+Is it a(n) cat? no
+Does it have a mane? yes
+Is it a(n) lion? yes
+I win!. Continue? yes
+
+Think of an animal, and I will guess it.
+Does it have legs? yes
+Is it a(n) cat? no
+Does it have a mane? yes
+Is it a(n) lion? no
+I give up. What is it? horse
+Please type a question whose answer is yes for horse and no for lion: Does it gallop?
+Continue? yes
+
+Think of an animal, and I will guess it.
+Does it have legs? no
+Is it a(n) snake? yes
+I win!. Continue? yes
+
+Think of an animal, and I will guess it.
+Does it have legs? no
+Is it a(n) snake? no
+I give up. What is it? snail
+Please type a question whose answer is yes for snail and no for snake: Does it have a shell?
+Continue? yes
+
+Think of an animal, and I will guess it.
+Does it have legs? no
+Is it a(n) snake? no
+Does it have a shell? yes
+Is it a(n) snail? yes
+I win!. Continue? yes
+
+Think of an animal, and I will guess it.
+Does it have legs? no
+Is it a(n) snake? no
+Does it have a shell? yes
+Is it a(n) snail? no
+I give up. What is it? crab
+Please type a question whose answer is yes for crab and no for snail: Does it live on the beach?
+Continue? no
+Save game? yes
+Saved
